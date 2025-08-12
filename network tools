@@ -1,0 +1,42 @@
+#!/bin/bash
+
+
+while true; do
+
+    echo "1) Show my IP address"
+    echo "2) Ping a website"
+    echo "3) DNS lookup (find IP of domain)"
+    echo "4) Show devices in my network"
+    echo "5) Exit"
+
+    read -p "Choose an option: " choice
+
+    case $choice in
+        1)
+            echo "Your IP addresses are:"
+            hostname -I
+            ;;
+        2)
+            read -p "Enter website or IP to ping: " target
+            ping -c 4 "$target"
+            ;;
+        3)
+            read -p "Enter domain  " domain
+            nslookup "$domain"
+            ;;
+        4)
+            echo "Devices in your network:"
+            arp -a
+            ;;
+        5)
+            echo "Goodbye!"
+            exit 0
+            ;;
+        *)
+            echo "Invalid choice, try again."
+            ;;
+    esac
+
+
+done
+      
