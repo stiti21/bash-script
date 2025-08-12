@@ -1,0 +1,12 @@
+#!/bin/bash
+
+read -p "Enter website or IP to check: " host
+
+ping -c 3 "$host" > /dev/null 2>&1
+
+if [ $? -eq 0 ]; then
+    echo "$host is ONLINE"
+else
+    echo "$host is OFFLINE or unreachable"
+fi
+
