@@ -1,0 +1,18 @@
+#!/bin/bash
+
+mkdir -p  /home/stiti/backup
+
+time=$(date +'%Y%m%d_%H%M%S' )
+
+backup_dir="/home/stiti/backup"
+
+read -p " please enter the file you wonna backup with path " file
+
+
+name=$(basename $file)
+
+file_name="${name}_${time}.tar.gz"
+
+
+tar -czvPf $backup_dir/$file_name  $file
+
