@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+status=$(sudo ufw status | grep -i "status")
+
+if [[ $status == *"active"* ]]; then
+  echo " firewall is ACTIVE."
+
+elif [[ $status == *"inactive"* ]]; then
+  echo " firewall is INACTIVE."
+
+
+fi
